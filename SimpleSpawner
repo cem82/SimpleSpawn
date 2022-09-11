@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Spawner : MonoBehaviour
+{
+    float enemyNumber;
+    public float WantedEnemyNumber;
+    public GameObject SpawnEnemy;
+    GameObject Player;
+    void Start()
+    {
+        Player = GameObject.FindWithTag("Player");
+    }
+    void Update()
+    {
+        if(GameObject.FindGameObjectsWithTag("Enemy").Length < WantedEnemyNumber)
+        {
+            Instantiate(SpawnEnemy, transform.position, Quaternion.identity);
+        }
+    }
+}
+
